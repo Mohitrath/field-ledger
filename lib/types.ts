@@ -1,0 +1,4 @@
+export type AssetKind = "image" | "video"; export type AssetRole = "before" | "after" | "standalone";
+export interface MediaAsset { id:string; publicId:string; secureUrl:string; kind:AssetKind; width?:number; height?:number; bytes?:number; format?:string; project:string; location:string; capturedAt:string; uploadedAt:string; role:AssetRole; pairId?:string; aiCaption?:string; aiTags:string[]; aiActivity?:string; aiConditionNotes?:string; aiAnalyzedAt?:string; aiStatus:"pending"|"done"|"skipped"|"error"; manualTags:string[]; notes?:string; }
+export interface ProjectSummary { name:string; locations:string[]; assetCount:number; firstCapturedAt:string; lastCapturedAt:string; beforeAfterPairCount:number; coverAssetId?:string; }
+export interface ComparisonPair { pairId:string; project:string; location:string; before?:MediaAsset; after?:MediaAsset; }
