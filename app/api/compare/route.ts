@@ -1,0 +1,1 @@
+import {NextRequest,NextResponse} from "next/server";import {listComparisonPairs} from "@/lib/store";export async function GET(req:NextRequest){const {searchParams}=new URL(req.url);const pairs=await listComparisonPairs(searchParams.get("project")??undefined);return NextResponse.json({pairs})}
