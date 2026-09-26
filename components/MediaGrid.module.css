@@ -1,0 +1,1 @@
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;transition:opacity .15s ease}.grid[data-loading]{opacity:.5}.empty{border:1px dashed var(--line-on-dark);border-radius:var(--radius-panel);padding:48px 24px;text-align:center;color:var(--mist)}.emptySub{font-size:13px;margin-top:6px}
