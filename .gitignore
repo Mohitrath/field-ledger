@@ -1,0 +1,8 @@
+node_modules
+.next
+.env.local
+.env
+data/media.json
+!data/.gitkeep
+npm-debug.log*
+.DS_Store
