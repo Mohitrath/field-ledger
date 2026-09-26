@@ -1,0 +1,5 @@
+import {v2 as cloudinary} from "cloudinary"; cloudinary.config({cloud_name:process.env.CLOUDINARY_CLOUD_NAME,api_key:process.env.CLOUDINARY_API_KEY,api_secret:process.env.CLOUDINARY_API_SECRET,secure:true}); export default cloudinary;
+export async function fetchResource(publicId:string,resourceType:"image"|"video"){return cloudinary.api.resource(publicId,{resource_type:resourceType})}
+export function thumbnailUrl(publicId:string,kind:"image"|"video"){return cloudinary.url(publicId,{resource_type:kind,transformation:[{width:480,height:360,crop:"fill",gravity:"auto"},{quality:"auto",fetch_format:"auto"}]})}
+export function detailUrl(publicId:string,kind:"image"|"video"){return cloudinary.url(publicId,{resource_type:kind,transformation:[{width:1600,crop:"limit"},{quality:"auto",fetch_format:"auto"}]})}
+export async function requestAutoTags(publicId:string,resourceType:"image"|"video"){try{const result=await cloudinary.uploader.explicit(publicId,{resource_type:resourceType,type:"upload",categorization:"google_tagging",auto_tagging:.6});return result.tags as string[]??[]}catch{return []}}
