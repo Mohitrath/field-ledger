@@ -1,0 +1,1 @@
+"use client";export default function PrintButton(){return <button onClick={()=>window.print()} style={{background:"var(--clay)",color:"#1a1006",border:"none",padding:"9px 16px",borderRadius:"3px",fontSize:"13px",fontWeight:600}}>Print / Save as PDF</button>}
